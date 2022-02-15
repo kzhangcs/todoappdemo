@@ -10,7 +10,7 @@ File.open("assignment_two_text.txt", "r:ISO-8859-1") do |file|
         when pattern then 
         result = word.match(pattern)
         domain = result[2]
-        word_frequency[domain] += 1
+        word_frequency[domain.downcase] += 1
       end
     end
   }
