@@ -16,5 +16,6 @@ File.open("assignment2.txt", "r:ISO-8859-1") do |file|
   }
 end
 
-
-puts(word_frequency.map{ |k,v| "#{k}: => #{v} time(s)" }.sort )
+word_frequency.sort.each do |key, value|
+   puts "#{key.rjust(word_frequency.keys.max_by(&:length).length)}: #{value} time(s)"
+end
