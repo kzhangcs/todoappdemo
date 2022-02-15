@@ -1,5 +1,5 @@
 word_frequency = Hash.new(0)
-pattern = /[a-z]+(.com).*/i
+pattern = /([a-z]+.com)[.]*/i
 
 # line_arr = []
 File.open("assignment2.txt", "r:ISO-8859-1") do |file|
@@ -9,8 +9,8 @@ File.open("assignment2.txt", "r:ISO-8859-1") do |file|
       case word
         when /[a-z]+.com/i then 
         result = word.match(pattern)
-        p result
-        word_frequency[word] += 1
+        domain = result[1]
+        word_frequency[domain] += 1
       end
     end
   }
