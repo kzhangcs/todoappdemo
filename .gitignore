@@ -1,2 +1,4 @@
 *.rb~
+.DS_Store
 README.md~
+.gitignore~
