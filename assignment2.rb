@@ -1,5 +1,5 @@
 word_frequency = Hash.new(0)
-pattern = /[.]*@([a-z\d]+.com)[.]*/i
+pattern = /[.]*@([a-z\d]+\.com)[.]*/i
 
 # line_arr = []
 File.open("assignment2.txt", "r:ISO-8859-1") do |file|
