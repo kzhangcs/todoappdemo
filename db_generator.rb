@@ -1,10 +1,7 @@
-# CSV library for Ruby
-#
-# - reads a file containing csv data and processes line by line
-
 require 'csv'
 require_relative 'student.rb'
 require_relative 'course.rb'
+require 'yaml'
 
 # - processes a CSV file that contains a header line. Automatically converts
 # fields that look like numbers.
@@ -26,6 +23,8 @@ CSV.foreach("students.csv", headers: true, converters: [CSV::Converters[:float]]
   students << student
   student_id += 1
 end
+
+File.write('university_db.yml', students.to_yaml)
 
 
 # puts students
