@@ -9,10 +9,10 @@ require_relative 'course.rb'
 # - processes a CSV file that contains a header line. Automatically converts
 # fields that look like numbers.
 students = []
-total_cost = 0
+student_id = 0
 CSV.foreach("students.csv", headers: true, converters: :numeric) do |data|
   student = Student.new
-  student.student_id = 0 #todo
+  student.student_id = student_id #todo
   student.first_name = data["GivenName"]
   student.last_name = data["Surname"]
   student.city = data["City"]
@@ -23,6 +23,7 @@ CSV.foreach("students.csv", headers: true, converters: :numeric) do |data|
   student.gpa = 0 #todo
   student.taking_courses = 0 #todo
   students << student
+  student_id += 1
 end
 
 puts students
