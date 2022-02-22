@@ -26,7 +26,6 @@ CSV.foreach("students.csv", headers: true, converters: [CSV::Converters[:float]]
     s.pounds = data["Pounds"]
     s.gpa = rand(2.0..4.0)
     s.taking_courses = courses.sample(rand(0..4.0))
-    p s.taking_courses
   end
   students << student
   student_id += 1
