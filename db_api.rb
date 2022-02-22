@@ -21,11 +21,11 @@ class DbApi
 
   def self.select_by_first_name (first_name)
     students = DbApi.students
-    selected = students.select{|student| first_name =~ student.first_name} #todo: regex
+    selected = students.select{|student| first_name === student.first_name}
   end 
   def self.select_by_last_name (last_name)
     students = DbApi.students
-    selected = students.select{|student| last_name =~ student.last_name} #todo: regex  
+    selected = students.select{|student| last_name =~ student.last_name} 
   end 
   def self.select_by_weight_more_than(pounds)
     students = DbApi.students

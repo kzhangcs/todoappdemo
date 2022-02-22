@@ -7,10 +7,13 @@ class Student
     yield self if block_given?
   end
 
-  def to_s #todo: delete student_id
-    "Name: #{first_name} #{last_name} (#{gender} from #{city}, #{state}) weight: #{pounds} GPA: #{gpa}
-    Courses: #{taking_courses.map(&:to_s)}" #todo: clean up
+  def to_s
+    if @taking_courses.empty?
+      "Name: #{first_name} #{last_name} (#{gender} from #{city}, #{state} weight: #{pounds} GPA: #{gpa})"
+    else
+      "Name: #{first_name} #{last_name} (#{gender} from #{city}, #{state} weight: #{pounds} GPA: #{gpa}) \n Courses: #{taking_courses.map(&:to_s).join(', ')}"
     end
+  end
 end
 
 
