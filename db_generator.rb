@@ -16,7 +16,7 @@ courses = [course1, course2, course3, course4]
 
 CSV.foreach("students.csv", headers: true, converters: [CSV::Converters[:float]]) do |data|
   student = Student.new do |s|
-    s.student_id = student_id #todo
+    s.student_id = student_id
     s.first_name = data["GivenName"]
     s.last_name = data["Surname"]
     s.city = data["City"]
@@ -32,13 +32,4 @@ CSV.foreach("students.csv", headers: true, converters: [CSV::Converters[:float]]
   student_id += 1
 end
 
-# File.write('university_db.yml', students.to_yaml)
-
-puts students[0]
-puts students[0].taking_courses
-puts students[40]
-puts students[40].taking_courses
-puts students[50]
-puts students[50].taking_courses
-puts students[60]
-puts students[60].taking_courses
+File.write('university_db.yml', students.to_yaml)
