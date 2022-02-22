@@ -21,7 +21,7 @@ class DbApi
 
   def self.select_by_first_name (first_name)
     students = DbApi.students
-    selected = students.select{|student| first_name === student.first_name}
+    selected = students.select{|student| first_name =~ student.first_name}
   end 
   def self.select_by_last_name (last_name)
     students = DbApi.students

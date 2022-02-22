@@ -15,6 +15,3 @@ class Student
     end
   end
 end
-
-
-    # Courses: #{taking_courses}.map #{ |e| my_to_s(e) }.join(', ') << ']'"
