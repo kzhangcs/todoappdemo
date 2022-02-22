@@ -6,5 +6,6 @@ class Student
   end
 
   def to_s
-    "#{student_id} #{first_name}#"
+    "#{student_id} #{first_name} #{last_name} #{city} #{state} #{email} #{gender} #{pounds} #{gpa} #{taking_courses}"
   end
+end
