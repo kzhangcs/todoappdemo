@@ -6,6 +6,6 @@ class Student
   end
 
   def to_s #todo: delete student_id
-    "Name: #{first_name} #{last_name} (#{gender} from #{city}, #{state}) weight: #{pounds} GPA: #{gpa} Courses: #{taking_courses}"
-  end
+    "Name: #{first_name} #{last_name} (#{gender} from #{city}, #{state}) weight: #{pounds} GPA: #{gpa}"
+    end
 end

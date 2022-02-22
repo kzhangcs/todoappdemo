@@ -8,23 +8,37 @@ require 'yaml'
 students = []
 student_id = 1
 
+course1 = Course.new(605.787, "Front End Web App Development")
+course2 = Course.new(605.671, "Principles of Data Communications Networks")
+course3 = Course.new(695.622, "Web Security")
+course4 = Course.new(605.612, "Operating Systems")
+courses = [course1, course2, course3, course4]
+
 CSV.foreach("students.csv", headers: true, converters: [CSV::Converters[:float]]) do |data|
-  student = Student.new
-  student.student_id = student_id #todo
-  student.first_name = data["GivenName"]
-  student.last_name = data["Surname"]
-  student.city = data["City"]
-  student.state = data["State"]
-  student.email = data["EmailAddress"]
-  student.gender = data["Gender"]
-  student.pounds = data["Pounds"]
-  student.gpa = 0.0 #todo
-  student.taking_courses = 0 #todo
+  student = Student.new do |s|
+    s.student_id = student_id #todo
+    s.first_name = data["GivenName"]
+    s.last_name = data["Surname"]
+    s.city = data["City"]
+    s.state = data["State"]
+    s.email = data["EmailAddress"]
+    s.gender = data["Gender"]
+    s.pounds = data["Pounds"]
+    s.gpa = rand(2.0..4.0)
+    s.taking_courses = courses.sample(rand(0..4.0))
+    p s.taking_courses
+  end
   students << student
   student_id += 1
 end
 
-File.write('university_db.yml', students.to_yaml)
+# File.write('university_db.yml', students.to_yaml)
 
-
-# puts students
+puts students[0]
+puts students[0].taking_courses
+puts students[40]
+puts students[40].taking_courses
+puts students[50]
+puts students[50].taking_courses
+puts students[60]
+puts students[60].taking_courses
