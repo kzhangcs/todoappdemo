@@ -20,7 +20,7 @@ class DbApi
   #     puts students[0]
   # end
 
-  def self.helper(method, *args)
+  def self.method_missing (method, *args)
     if @@students.empty?
       @@students = YAML::load_file('university_db.yml')
     end
