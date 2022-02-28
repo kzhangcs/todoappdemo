@@ -4,16 +4,16 @@ require 'yaml'
 
 class DbApi  
 
-  # @@students =  YAML::load_file('university_db.yml')
+  @@students = []
 
   # def initializer()
   #   puts "here"
   #   @students =  YAML::load_file('university_db.yml')
   # end
 
-  # def self.students #class method
-  #   @@students
-  # end
+  def self.students #class method
+    @@students
+  end
 
   # def self.method_missing(method, *args)
   #     @@students = YAML::load_file('university_db.yml')
@@ -21,12 +21,18 @@ class DbApi
   # end
 
   def self.helper(method, *args)
+    if @@students.empty?
+      puts "here"
+      @@students = YAML::load_file('university_db.yml')
+    end
+    puts "here2"
+    students_array = @@students
+    puts students_array[0]
     compare = args[0]
     searching = args[1] 
-    students = YAML::load_file('university_db.yml')
     result = method.match(/select_students_where_(.*)/i)
     attribute = result[1]
-    selected = students.select{|student| searching.send(compare, (student.send attribute))}
+    selected = students_array.select{|student| (student.send attribute).send(compare, searching)}
   end
   
   # def self.select_by_gender (gender)
