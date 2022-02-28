@@ -11,9 +11,9 @@ class DbApi
   #   @students =  YAML::load_file('university_db.yml')
   # end
 
-  def self.students #class method
-    @@students
-  end
+  # def self.students #class method
+  #   @@students
+  # end
 
   # def self.method_missing(method, *args)
   #     @@students = YAML::load_file('university_db.yml')
@@ -22,16 +22,15 @@ class DbApi
 
   def self.helper(method, *args)
     if @@students.empty?
-      puts "here"
       @@students = YAML::load_file('university_db.yml')
     end
-    puts "here2"
     students_array = @@students
-    puts students_array[0]
+    
     compare = args[0]
     searching = args[1] 
     result = method.match(/select_students_where_(.*)/i)
     attribute = result[1]
+    
     selected = students_array.select{|student| (student.send attribute).send(compare, searching)}
   end
   
@@ -40,16 +39,16 @@ class DbApi
   #   selected = students.select{|student| gender === student.gender}
   # end
 
-  def self.select_by_first_name (first_name)
-    students = DbApi.students
-    selected = students.select{|student| first_name =~ student.first_name}
-  end 
-  def self.select_by_last_name (last_name)
-    students = DbApi.students
-    selected = students.select{|student| last_name =~ student.last_name} 
-  end 
-  def self.select_by_weight_more_than(pounds)
-    students = DbApi.students
-    selected = students.select{|student| pounds < student.pounds}
-  end
+#   def self.select_by_first_name (first_name)
+#     students = DbApi.students
+#     selected = students.select{|student| first_name =~ student.first_name}
+#   end 
+#   def self.select_by_last_name (last_name)
+#     students = DbApi.students
+#     selected = students.select{|student| last_name =~ student.last_name} 
+#   end 
+#   def self.select_by_weight_more_than(pounds)
+#     students = DbApi.students
+#     selected = students.select{|student| pounds < student.pounds}
+#   end
 end
