@@ -7,6 +7,7 @@ class DbApi
   # @@students =  YAML::load_file('university_db.yml')
 
   # def initializer()
+  #   puts "here"
   #   @students =  YAML::load_file('university_db.yml')
   # end
 
@@ -21,13 +22,13 @@ class DbApi
 
   def self.helper(method, *args)
     compare = args[0]
-    male = args[1]
+    searching = args[1] 
     students = YAML::load_file('university_db.yml')
     result = method.match(/select_students_where_(.*)/i)
-    puts result[1]
-    selected = students.select{|student| male.send(compare, (student.send result[1]))}
+    attribute = result[1]
+    selected = students.select{|student| searching.send(compare, (student.send attribute))}
   end
-
+  
   # def self.select_by_gender (gender)
   #   students = YAML::load_file('university_db.yml')
   #   selected = students.select{|student| gender === student.gender}
