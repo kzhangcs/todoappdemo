@@ -14,7 +14,6 @@ class StockQuote
   def unique_url
     response = HTTParty.get(API_URL)
     # TODO more error checking (500 error, etc)
-    json = JSON.parse(response.body)
-    json['companyName']
+    JSON.parse(response.body)
   end
 end
