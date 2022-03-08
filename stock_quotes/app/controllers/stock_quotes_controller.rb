@@ -8,7 +8,7 @@ class StockQuotesController < ApplicationController
      # @companyName = 'Apple'
 
     api = StockQuote.new()
-    result = api.unique_url
+    result = api.unique_url('aapl')
     @symbol = result['symbol']
     @companyName = result['companyName']
     # @user = # Code to retrieve User
