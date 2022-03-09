@@ -10,7 +10,7 @@ class StockQuote
   # end
 
    # API_URL = 'https://cloud.iexapis.com/stable/stock/aapl/quote?token=pk_9de4cd0891cf444ab35b6caae35fde3a'
-
+   # example input: FB, AAPL, MSFT, AMZN
   def unique_url input
   	base_uri = 'https://cloud.iexapis.com/stable/stock/'
  	full_url = base_uri + input + '/quote?token=pk_9de4cd0891cf444ab35b6caae35fde3a'

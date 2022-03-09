@@ -7,10 +7,13 @@ class StockQuotesController < ApplicationController
      # @result = StockQuote.for('MD')
      # @companyName = 'Apple'
 
+
     api = StockQuote.new()
     result = api.unique_url('aapl')
     @symbol = result['symbol']
     @companyName = result['companyName']
+     @change = params[:change] || '0.61'
+
     # @user = # Code to retrieve User
     # @user.update_attribute :url, url
     # etc
