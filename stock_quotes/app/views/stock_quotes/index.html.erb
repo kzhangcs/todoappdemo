@@ -2,18 +2,30 @@
 <h1>symbol - <%= @symbol %></h1>
 <h1>change - <%= @change %></h1> -->
 <h1>result - <%= @result %></h1>
-<h1>params - <%= @params %></h1>
-<h1>inputs - <%= @inputs %></h1>
+<!-- <h1>params - <%= @params %></h1>
+ --><!-- <h1>inputs - <%= @inputs %></h1> -->
 
-<!-- <table>
+<table>
 	<tr>
-		<th>Name</th>
-		<th>Party</th>
-		<th>State</th>
-		<th>District</th>
-		<th>Phone</th>
-		<th>Office</th>
-		<th>Contact</th>
+		<th>Stock Symbol</th>
+		<th>Company</th>
+		<th>Previous Day Close</th>
+		<th>Latest Price</th>
+		<th>Change</th>
+		<th>52 Week Stock High</th>
+		<th>52 Week Stock Low</th>
 	</tr>
-</table> -->
+
+	<% @result.each do |rep| %>
+	<tr class='<%= cycle 'even', 'odd' %>'>
+		<td><%= rep['symbol'] %></td>
+		<td><%= rep['companyName'] %></td>
+		<td><%= rep['previousClose'] %></td>
+		<td><%= rep['latestPrice'] %></td>
+		<td><%= rep['change'] %></td>
+		<td><%= rep['week52High'] %></td>
+		<td><%= rep['week52Low'] %></td>
+	</tr>
+	<% end %>
+</table>
 

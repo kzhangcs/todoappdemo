@@ -10,7 +10,7 @@ class StockQuotesController < ApplicationController
     api = StockQuote.new()
     inputs = params[:symbol] || ['aapl','fb']
     if params[:symbol]
-    	inputs = params[:symbol].split(',')
+    	inputs = params[:symbol].split(',') #todo: condense
     end
     @result = api.unique_url(inputs)
    	@params = params
