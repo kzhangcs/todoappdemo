@@ -20,8 +20,14 @@ class StockQuote
     [
 	  	{
 	    "change": 0.61,
-	    "companyName": "Apple Inc",
+	    "companyName": "Apple",
 	    "symbol": "AAPL"
+		},
+		
+		{
+	    "change": 2.79,
+	    "companyName": "Meta",
+	    "symbol": "FB"
 		}
 	]
   end
