@@ -8,11 +8,8 @@ class StockQuotesController < ApplicationController
      # @companyName = 'Apple'
 
     api = StockQuote.new()
-    inputs = params[:symbol] || ['aapl','fb']
-    if params[:symbol]
-    	inputs = params[:symbol].split(',') #todo: condense
-    end
-    @result = api.unique_url(inputs)
+    inputs = params[:symbol].split(',') || ['aapl','fb']
+    @result = api.query(inputs)
    	# @params = params
    	# @inputs = inputs
    	@companies = params[:symbol] || 'aapl,fb'
