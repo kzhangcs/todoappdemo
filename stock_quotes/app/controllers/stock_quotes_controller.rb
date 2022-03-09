@@ -9,7 +9,7 @@ class StockQuotesController < ApplicationController
 
 
     api = StockQuote.new()
-    @result = api.unique_url('aapl')
+    @result = api.unique_url(['aapl', 'fb'])
     # @first = @result[0]
     # @symbol = @first[:symbol] #was: @symbol = @first['symbol']
     # @companyName = @first[:companyName]
