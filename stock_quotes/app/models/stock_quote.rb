@@ -13,11 +13,12 @@ class StockQuote
    # example input: FB, AAPL, MSFT, AMZN
   def unique_url inputs
   	array = []
+  	# inputs = ["fb", "amzn", "appl"]
   	for input in inputs
 	  	base_uri = 'https://cloud.iexapis.com/stable/stock/'
 	 	full_url = base_uri + input + '/quote?token=pk_9de4cd0891cf444ab35b6caae35fde3a'
 	 	response = HTTParty.get(full_url)
-	 	parsed = JSON.parse(response.body)
+	 	parsed = JSON.parse(response.body) #todo: crashes when symbol not found
 	 	array << parsed
 	 end
 	 array
