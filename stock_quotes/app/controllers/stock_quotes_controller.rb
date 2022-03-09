@@ -10,10 +10,10 @@ class StockQuotesController < ApplicationController
 
     api = StockQuote.new()
     result = api.unique_url('aapl')
-    @symbol = result['symbol']
-    @companyName = result['companyName']
-     @change = params[:change] || '0.61'
-
+    @first = result[0]
+    @symbol = @first[:symbol] #was @symbol = @first['symbol']
+    @companyName = @first[:companyName]
+    @change = params[:change] || '0.61'
     # @user = # Code to retrieve User
     # @user.update_attribute :url, url
     # etc
