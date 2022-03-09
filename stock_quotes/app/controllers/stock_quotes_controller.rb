@@ -7,9 +7,14 @@ class StockQuotesController < ApplicationController
      # @result = StockQuote.for('MD')
      # @companyName = 'Apple'
 
-
     api = StockQuote.new()
-    @result = api.unique_url(['aapl', 'fb'])
+    inputs = params[:symbol] || ['aapl','fb']
+    if params[:symbol]
+    	inputs = params[:symbol].split(',')
+    end
+    @result = api.unique_url(inputs)
+   	@params = params
+   	@inputs = inputs
     # @first = @result[0]
     # @symbol = @first[:symbol] #was: @symbol = @first['symbol']
     # @companyName = @first[:companyName]
