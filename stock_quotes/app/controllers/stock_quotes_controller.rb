@@ -13,8 +13,8 @@ class StockQuotesController < ApplicationController
     	inputs = params[:symbol].split(',') #todo: condense
     end
     @result = api.unique_url(inputs)
-   	@params = params
-   	@inputs = inputs
+   	# @params = params
+   	# @inputs = inputs
    	@companies = params[:symbol] || 'aapl,fb'
     # @first = @result[0]
     # @symbol = @first[:symbol] #was: @symbol = @first['symbol']
