@@ -10,7 +10,7 @@ class StockQuotesController < ApplicationController
 
     api = StockQuote.new()
     @result = api.unique_url('aapl')
-    @first = @result[0]
+    # @first = @result[0]
     # @symbol = @first[:symbol] #was: @symbol = @first['symbol']
     # @companyName = @first[:companyName]
     # @change = params[:change] || '0.61'
