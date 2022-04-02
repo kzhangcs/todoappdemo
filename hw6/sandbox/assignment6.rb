@@ -14,6 +14,22 @@ puts User.first.all_items.inspect
 
 # Validate that gender field and age field
 user_new = User.create!(login: "john", password: "secret")
-Account.create!(gender: "other", age: 30, first_name: "John", last_name: "Smith", user_id: user_new.id)
-Account.create!(gender: "male", age: 101, first_name: "John", last_name: "Smith", user_id: user_new.id)
-Account.create!(gender: "male", age: 19, first_name: "John", last_name: "Smith", user_id: user_new.id)
+begin
+	Account.create!(gender: "other", age: 30, first_name: "John", last_name: "Smith", user_id: user_new.id)
+rescue Exception => e
+	puts "#{e.inspect}"
+end
+
+begin
+	Account.create!(gender: "male", age: 101, first_name: "John", last_name: "Smith", user_id: user_new.id)
+rescue Exception => e
+	puts "#{e.inspect}"
+end
+
+begin
+	Account.create!(gender: "male", age: 19, first_name: "John", last_name: "Smith", user_id: user_new.id)
+rescue Exception => e
+	puts "#{e.inspect}"
+end
+
+user_new.destroy
