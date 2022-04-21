@@ -10,9 +10,15 @@
   <%= @todo_list.list_due_date %>
 </p>
 
-<%= @todo_items.each do |item| %>
-  <%= link_to item.task_title, [@todo_list, item] %>
+<tbody>
+<% @todo_items.each do |todo_item| %>
+  <tr>
+    <td><%= todo_item.task_title %></td>
+    <td><%= todo_item.due_date %></td>
+    <td><%= link_to 'Show', [@todo_list, todo_item] %></td>
+  </tr>
 <% end %>
+</tbody>
 
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
 <%= link_to 'Back', todo_lists_path %>
