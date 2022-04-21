@@ -9,6 +9,11 @@ class TodoItemsController < ApplicationController
     @todo_list = TodoList.find(params[:todo_list_id]) #todo: call set_todo_list instead
   end
 
+  def new
+    @todo_list = TodoList.find(params[:todo_list_id]) #todo: call set_todo_list instead
+    @todo_item = @todo_list.todo_items.new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_item
