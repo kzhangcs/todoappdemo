@@ -10,4 +10,15 @@
   <%= @todo_item.due_date %>
 </p>
 
-<!-- todo: need edit, back from todo_list show -->
+<p>
+  <strong>Description:</strong>
+  <%= @todo_item.description %>
+</p>
+
+<p>
+  <strong>Done?:</strong>
+  <%= @todo_item.done %>
+</p>
+
+<%= link_to 'Edit', edit_todo_list_todo_item_path([@todo_list, @todo_item]) %> |
+<%= link_to 'Back', @todo_list %>

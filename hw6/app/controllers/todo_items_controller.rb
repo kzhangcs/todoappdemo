@@ -2,6 +2,7 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, only: %i[ show edit update destroy ]
 
   def show
+	@todo_list = TodoList.find(params[:todo_list_id]) #todo: call set_todo_list instead
   end
 
   def edit
