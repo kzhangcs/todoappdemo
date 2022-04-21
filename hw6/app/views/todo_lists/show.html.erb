@@ -10,5 +10,9 @@
   <%= @todo_list.list_due_date %>
 </p>
 
+<%= @todo_items.each do |item| %>
+  <%= link_to item.task_title, [@todo_list, item] %>
+<% end %>
+
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
 <%= link_to 'Back', todo_lists_path %>
