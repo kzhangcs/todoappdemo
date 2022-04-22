@@ -27,10 +27,13 @@ url: [@todo_list, @todo_item]) do |form| %>
     <%= form.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :done %>
-    <%= form.text_field :done %>
-  </div>
+  <% if controller.action_name == 'edit' %>
+    <div class="field">
+      <%= form.label :done %>
+      <%= form.text_field :done %>
+    </div>
+  <% end %>
+
 
   <div class="actions">
     <%= form.submit %>

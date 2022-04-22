@@ -12,6 +12,7 @@ class TodoItemsController < ApplicationController
   def new
     @todo_list = TodoList.find(params[:todo_list_id]) #todo: call set_todo_list instead
     @todo_item = @todo_list.todo_items.new
+    @todo_item.done = false #todo: initialize todo here?
   end
 
   private
