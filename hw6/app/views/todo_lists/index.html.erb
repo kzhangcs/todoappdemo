@@ -5,7 +5,7 @@
 
 <% @todo_lists.each do |todo_list| %>
   <div class="todo_list">
-    
+
     <% all_done = true %>
     <% todo_list.todo_items.each do |todo_item| %>
       <% if todo_item.done %>
@@ -21,8 +21,6 @@
 
     <%= link_to "#{todo_list.list_name}", todo_list, class: "todo_list_link" %>
 
-    <%= link_to 'Edit', edit_todo_list_path(todo_list) %>
-    <%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>
 
