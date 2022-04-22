@@ -13,6 +13,40 @@ class TodoItemsController < ApplicationController
     @todo_item.done = false #todo: initialize todo here?
   end
 
+  def create
+    @todo_item = @todo_list.todo_items.new(todo_item_params) #todo: limit :done
+
+    respond_to do |format|
+      if @todo_item.save
+        format.html { redirect_to @todo_item, notice: 'Todo item was successfully created.' }
+        format.json { render :show, status: :created, location: @todo_item }
+      else
+        format.html { render :new }
+        format.json { render json: @todo_item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @todo_item.update(todo_item_params)
+        format.html { redirect_to @todo_item, notice: 'Todo item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @todo_item }
+      else
+        format.html { render :edit }
+        format.json { render json: @todo_item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @todo_item.destroy
+    respond_to do |format|
+      format.html { redirect_to todo_items_url, notice: 'Todo item was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_item
@@ -25,6 +59,6 @@ class TodoItemsController < ApplicationController
     end
 
     def set_todo_list
-      @todo_list = TodoList.find(params[:todo_list_id])
+      @todo_list = TodoList.find(params[:todo_list_id]) #todo: change to current_user?
     end
 end
