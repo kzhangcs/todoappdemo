@@ -1,25 +1,30 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p> <!-- todo: delete notice -->
 
-<p>
-  <strong>List name:</strong>
-  <%= @todo_list.list_name %>
-</p>
+<h1><%= @todo_list.list_name %></h1>
 
 <p>
   <strong>List due date:</strong>
   <%= @todo_list.list_due_date %>
 </p>
 
-<tbody>
-<% @todo_items.each do |todo_item| %>
-  <tr>
-    <td><%= todo_item.task_title %></td>
-    <td><%= todo_item.due_date %></td>
-    <td><%= link_to 'Show', [@todo_list, todo_item] %></td>
-  </tr>
-<% end %>
-</tbody>
+<%= link_to 'Add Todo Item', new_todo_list_todo_item_path(@todo_list) %>
 
-<%= link_to 'New Todo Item', new_todo_list_todo_item_path(@todo_list) %> |
+<% @todo_items.each do |todo_item| %>
+  <div class="todo_list">
+
+  	<% if todo_item.done %>
+  		<span class="todo_list_completed_link"><%= todo_item.due_date %></span>
+  	<% else %>
+  		<span class="todo_list_incomplete_link"><%= todo_item.due_date %></span>
+    <% end %>
+
+    <%= link_to "#{todo_item.task_title}", [@todo_list, todo_item], class: "todo_list" %> <!-- todo: change here? -->
+
+  </div>
+<% end %>
+
+<br>
+
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
-<%= link_to 'Back', todo_lists_path %>
+<%= link_to 'Delete Todo List', @todo_list, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back To Todo Lists', todo_lists_path %>

@@ -20,14 +20,24 @@ body {
 
 .todo_list {
 	padding-top: 20px;
+	font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .todo_list_completed_link {
-	font: bold 20px arial, sans-serif; /*todo: change color*/
+    border: solid #009933;
+    margin: 5px;
+    padding: 5px;
+    background-color: #cccccc;
+    -webkit-border-radius: 10px;
 }
 
 .todo_list_incomplete_link {
-	font: bold 30px arial, sans-serif; /*todo: change color*/
+	border: solid #cc0000;
+    margin: 5px;
+    padding: 5px;
+    background-color: #cccccc;
+    -webkit-border-radius: 10px;
 }
 
 #todo_items {
