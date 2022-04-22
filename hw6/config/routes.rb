@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'accounts/show'
-  get 'accounts/edit'
-  get 'accounts/update'
+  # get 'accounts/show'
+  # get 'accounts/edit'
+  # get 'accounts/update'
   # get 'sessions/new'
   # get 'sessions/create'
   # get 'sessions/destroy'
@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   get '/login' => "sessions#new", as: "login"
   delete '/logout' => "sessions#destroy", as: "logout"
+
+  resources :accounts, only: [:show, :edit, :update]
 end
