@@ -13,6 +13,7 @@
     <% if logged_in? %>
       <div style='float: right;'>
         You are logged in as <%= current_user.login %> |
+        <%= link_to "Account info", current_user.account %> |
         <%= link_to "Logout", logout_path, method: :delete %>
       </div>
     <% end %>
