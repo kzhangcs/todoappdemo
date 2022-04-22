@@ -5,8 +5,7 @@
 
 <% @todo_lists.each do |todo_list| %>
   <div class="todo_list">
-    <td><%= todo_list.list_due_date %></td>
-
+    
     <% all_done = true %>
     <% todo_list.todo_items.each do |todo_item| %>
       <% if todo_item.done %>
@@ -14,11 +13,13 @@
       <% end %>
     <% end %>
 
-    <% if @all_done %>
-     <%= link_to "#{todo_list.list_name}", todo_list, class: "todo_list_completed_link" %>
+    <% if all_done %>
+      <span class="todo_list_completed_link"><%= todo_list.list_due_date%></span>
     <% else %>
-     <%= link_to "#{todo_list.list_name}", todo_list, class: "todo_list_incomplete_link" %>
+      <span class="todo_list_incomplete_link"><%= todo_list.list_due_date %></span>
     <% end %>
+
+    <%= link_to "#{todo_list.list_name}", todo_list, class: "todo_list_link" %>
 
     <%= link_to 'Edit', edit_todo_list_path(todo_list) %>
     <%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %>
