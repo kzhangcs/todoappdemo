@@ -2,10 +2,25 @@
 
 <h1>Todo Lists</h1>
 
+
 <% @todo_lists.each do |todo_list| %>
   <div class="todo_list">
     <td><%= todo_list.list_due_date %></td>
-    <%= link_to "#{todo_list.list_name}", todo_list, class: "todo_list_link" %>
+
+        <% all_done = true %>
+        <% todo_list.todo_items.each do |todo_item| %>
+          <% if todo_item.done %>
+            <% all_done = false %>
+          <% end %>
+        <% end %>
+        <%= all_done %>
+
+    <% if @all_done %>
+     <%= link_to "#{todo_list.list_name}", todo_list, class: "todo_list_completed_link" %>
+    <% else %>
+     <%= link_to "#{todo_list.list_name}", todo_list, class: "todo_list_incomplete_link" %>
+    <% end %>
+
     <%= link_to 'Edit', edit_todo_list_path(todo_list) %>
     <%= link_to 'Destroy', todo_list, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>

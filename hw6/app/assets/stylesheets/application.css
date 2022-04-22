@@ -22,8 +22,12 @@ body {
 	padding-top: 20px;
 }
 
-.todo_list_link {
-	font: bold 15px arial, sans-serif;
+.todo_list_completed_link {
+	font: bold 20px arial, sans-serif; /*todo: change color*/
+}
+
+.todo_list_incomplete_link {
+	font: bold 30px arial, sans-serif; /*todo: change color*/
 }
 
 #todo_items {
