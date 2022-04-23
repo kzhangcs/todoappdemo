@@ -1,7 +1,7 @@
 
 <h1><%= @todo_item.task_title %></h1>
 
-<div class="large_text">Due on: <%= @todo_list.list_due_date %></div>
+<div class="large_text">Due on: <%= @todo_item.due_date %></div>
 <div class="large_text">Status: 
 	<% if @todo_item.done %>
 		Done
