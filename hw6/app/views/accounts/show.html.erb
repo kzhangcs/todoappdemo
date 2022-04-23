@@ -1,24 +1,20 @@
-<!-- todo: delete title
- --><h1>Accounts#show</h1>
-<p>Find me in app/views/accounts/show.html.erb</p>
-
 <h1>Account Info</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @account.first_name %>
-  <%= @account.last_name %>
-</p>
+<div class="large_text">
+	Name:
+    <%= @account.first_name %>
+	<%= @account.last_name %>
+</div>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @account.gender %>
-</p>
+<div class="large_text">
+	Gender:
+    <%= @account.gender %>
+</div>
 
-<p>
-  <strong>Age:</strong>
-  <%= @account.age %>
-</p>
+<div class="large_text">
+	Age:
+    <%= @account.age %>
+</div>
 
 
 <%= link_to 'Edit Account', edit_account_path(@account) %> |
