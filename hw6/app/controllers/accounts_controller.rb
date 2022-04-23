@@ -8,6 +8,15 @@ class AccountsController < ApplicationController
 	end
 
 	def update
+		respond_to do |format|
+	      if @account.update(account_params)
+	        format.html { redirect_to account_url(@account), notice: "Account was successfully updated." }
+	        format.json { render :show, status: :ok, location: @account }
+	      else
+	        format.html { render :edit, status: :unprocessable_entity }
+	        format.json { render json: @account.errors, status: :unprocessable_entity }
+	      end
+	    end
 	end
 
 	private
@@ -17,7 +26,7 @@ class AccountsController < ApplicationController
 	end
 
 	# Only allow a list of trusted parameters through.
-	# def todo_list_params
-	#   params.require(:todo_list).permit(:list_name, :list_due_date)
-	# end
+	def account_params
+	  params.require(:account).permit(:gender, :age, :first_name, :last_name)
+	end
 end
