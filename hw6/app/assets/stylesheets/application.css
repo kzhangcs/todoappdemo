@@ -53,7 +53,7 @@ h2 {
 .todo_list_completed_link {
     margin: 5px;
     padding: 5px;
-    background-color: #adff2f; /*todo: check color;*/
+    background-color: #adff2f;
     -webkit-border-radius: 10px;
 }
 

@@ -6,7 +6,7 @@
 
     <% all_done = true %>
     <% todo_list.todo_items.each do |todo_item| %>
-      <% if todo_item.done %>
+      <% if not todo_item.done %>
         <% all_done = false %>
       <% end %>
     <% end %>

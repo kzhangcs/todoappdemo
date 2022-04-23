@@ -1,7 +1,20 @@
 <h1><%= @todo_list.list_name %></h1>
 
+<% all_done = true %>
+<% @todo_list.todo_items.each do |todo_item| %>
+  <% if not todo_item.done %>
+    <% all_done = false %>
+  <% end %>
+<% end %>
+
 <p>
-  <h2>List Due Date:<span class="due_date_alert"><%= @todo_list.list_due_date %></span></h2>
+  <h2>List Due Date:
+	  <% if all_done %>
+	    <span class="todo_list_completed_link"><%= @todo_list.list_due_date%></span>
+	  <% else %>
+	    <span class="todo_list_incomplete_link"><%= @todo_list.list_due_date %></span>
+	  <% end %>
+  </h2>
 </p>
 
 <%= link_to 'Add Todo Item', new_todo_list_todo_item_path(@todo_list) %>
@@ -20,6 +33,7 @@
   </div>
 <% end %>
 
+<br>
 <br>
 
 <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
