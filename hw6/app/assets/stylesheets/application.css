@@ -118,3 +118,12 @@ textarea {
 
 #notice { color: green; }
 #alert { color: red; }
+
+
+.item_text {
+    background-color: #33CC33;
+    margin-top: 15px;
+    padding: 30px;
+    width: 400px;
+    -webkit-border-radius: 10px;
+}
