@@ -11,14 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :list_name %>
-    <%= form.text_field :list_name %>
-  </div>
 
   <div class="field">
     <%= form.label :list_due_date %>
-    <%= form.text_field :list_due_date %>
+    <br>
+    <%= form.date_select :list_due_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :list_name %>
+    <br>
+    <%= form.text_field :list_name %>
   </div>
 
   <div class="actions">
