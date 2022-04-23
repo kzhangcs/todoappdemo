@@ -11,8 +11,8 @@ TodoList.destroy_all
 Account.destroy_all
 User.destroy_all
 
-user1 = User.create!(login: "lebron", password: "lejames")
-user2 = User.create!(login: "johnw", password: "123abc")
+user1 = User.create!(login: "Matt", password: "abc123")
+user2 = User.create!(login: "Tim", password: "abc123")
 
 account1 = Account.create!(gender: "male", age: 30, first_name: "LeBron", last_name: "James", user_id: user1.id)
 account2 = Account.create!(gender: "male", age: 30, first_name: "John", last_name: "Whatever", user_id: user2.id)

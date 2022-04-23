@@ -50,6 +50,9 @@ class TodoListsController < ApplicationController
 
   # DELETE /todo_lists/1 or /todo_lists/1.json
   def destroy
+    @todo_list.todo_items.each do |todo_item|
+      todo_item.destroy
+    end
     @todo_list.destroy
 
     respond_to do |format|
