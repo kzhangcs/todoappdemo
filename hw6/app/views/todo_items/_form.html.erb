@@ -13,27 +13,30 @@ url: [@todo_list, @todo_item]) do |form| %>
   <% end %>
 
   <div class="field">
+    <%= form.label :due_date %>
+    <br>
+    <%= form.date_select :due_date %>
+  </div>
+
+  <div class="field">
     <%= form.label :task_title %>
+    <br>
     <%= form.text_field :task_title %>
   </div>
 
   <div class="field">
-    <%= form.label :due_date %>
-    <%= form.text_field :due_date %>
-  </div>
-
-  <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <br>
+    <%= form.text_area :description, size: "40x12" %>
   </div>
 
   <% if controller.action_name == 'edit' %>
     <div class="field">
-      <%= form.label :done %>
-      <%= form.text_field :done %>
+      <%= form.label "Task Completed" %>
+      <br>
+      <%= form.check_box :done %>
     </div>
   <% end %>
-
 
   <div class="actions">
     <%= form.submit %>

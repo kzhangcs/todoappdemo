@@ -111,5 +111,10 @@ textarea {
 }
 
 
+.large_text {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
 #notice { color: green; }
 #alert { color: red; }
