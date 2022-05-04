@@ -50,7 +50,7 @@ class TodoItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_item
-      @todo_item = TodoItem.find(params[:id])
+      @todo_item = TodoItem.find(params[:todo_item_id])
     end
 
     # Only allow a list of trusted parameters through.
