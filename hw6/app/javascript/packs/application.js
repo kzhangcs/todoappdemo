@@ -8,12 +8,17 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 
+// require("jquery")
 global.$ = require("jquery")
 require("jquery-ui")
 
 $(function(){
 	// Plain jQuery
 	$('#notice').fadeOut(5000);
+
+	// $('#list_due_date').datepicker( { dateFormat: 'yy-mm-dd' } );
+	$('[data-behaviour~=datepicker]').datepicker( { dateFormat: 'yy-mm-dd' } );
+	// $('.datepicker').datepicker( { dateFormat: 'yy-mm-dd' } );
 });
 
 

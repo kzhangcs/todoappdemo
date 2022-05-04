@@ -15,7 +15,7 @@ url: [@todo_list, @todo_item]) do |form| %>
   <div class="field">
     <%= form.label :due_date %>
     <br>
-    <%= form.date_select :due_date %>
+    <%= form.text_field :due_date, 'data-behaviour' => 'datepicker' %>
   </div>
 
   <div class="field">
