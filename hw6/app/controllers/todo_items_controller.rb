@@ -9,12 +9,12 @@ class TodoItemsController < ApplicationController
   end
 
   def new
-    @todo_item = TodoItem.new
+    @todo_item = @todo_list.todo_items.new
     @todo_item.done = false #todo: initialize todo here?
   end
 
   def create
-    @todo_item = current_user.account.todo_lists.todo_items.new(create_todo_item_params) #todo: limit :done
+    @todo_item = @todo_list.todo_items.new(create_todo_item_params) #todo: limit :done
     respond_to do |format|
       if @todo_item.save
         format.html { redirect_to todo_list_todo_item_path(:todo_list_id => @todo_list.id, :todo_item_id => @todo_item.id), notice: 'Todo item was successfully created.' }
@@ -64,7 +64,7 @@ class TodoItemsController < ApplicationController
     end
 
     def set_todo_list
-      @todo_list = current_user.account.todo_lists.find(params[:todo_list_id])
+      @todo_list = TodoList.find(params[:todo_list_id]) #todo: change to current_user?
 
       # @todo_list = TodoList.find(params[:todo_list_id]) #todo: change to current_user?
     end
