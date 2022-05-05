@@ -19,23 +19,9 @@
 
 <%= link_to 'Add Todo Item', new_todo_list_todo_item_path(@todo_list) %>
 
-<% @todo_items.each do |todo_item| %>
-  <div class="todo_list">
-
-  	<% if todo_item.done %>
-  		<span class="todo_item_completed_link"><%= todo_item.due_date %></span>
-  	<% else %>
-  		<span class="todo_item_incomplete_link"><%= todo_item.due_date %></span>
-    <% end %>
-
-    <%= link_to "#{todo_item.task_title}", [@todo_list, todo_item], class: "todo_list" %> <!-- todo: change here? -->
-
-    <%= link_to 'Update', edit_todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => todo_item.id), remote: true, id: 'edit_todo_item_link' %>
-
-    <div id='form_container' />
-
-  </div>
-<% end %>
+<tbody>
+  <%= render partial: "todo_items/todo_items" %>
+</tbody>
 
 <br>
 <%= will_paginate @todo_items %>
