@@ -1,16 +1,17 @@
-<div id="<%= dom_id(todo_item) %>" class="todo_list">
+<div class="todo_list">
 
-  <% if todo_item.done %>
-    <span class="todo_item_completed_link"><%= todo_item.due_date %></span>
-  <% else %>
-    <span class="todo_item_incomplete_link"><%= todo_item.due_date %></span>
-  <% end %>
+  <div id="<%= dom_id(todo_item) %>">
+    <% if todo_item.done %>
+      <span class="todo_item_completed_link"><%= todo_item.due_date %></span>
+    <% else %>
+      <span class="todo_item_incomplete_link"><%= todo_item.due_date %></span>
+    <% end %>
 
   <%= link_to "#{todo_item.task_title}", [@todo_list, todo_item], class: "todo_list" %> <!-- todo: change here? -->
-
 
   <%= link_to 'Update', edit_todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => todo_item.id), remote: true, id: 'edit_todo_item_link' %> <!-- id for edit.js.erb to render the edit form-->
 
   <div id='form_container' />
+    </div>
 
 </div>
