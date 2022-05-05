@@ -9,16 +9,16 @@ class TodoItemsController < ApplicationController
   end
 
   def new
-    # @todo_item = @todo_list.todo_items.new
-    @todo_item = TodoItem.new
+    @todo_item = @todo_list.todo_items.new
     @todo_item.done = false #todo: initialize todo here?
   end
 
   def create
-    @todo_item = TodoItem.new(create_todo_item_params) #todo: limit :done
+    @todo_item = @todo_list.todo_items.new(create_todo_item_params) #todo: limit :done
+
     respond_to do |format|
       if @todo_item.save
-        format.html { redirect_to todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => @todo_item.id), notice: 'Todo item was successfully created.' }
+        format.html { redirect_to [@todo_list, @todo_item], notice: 'Todo item was successfully created.' }
         format.json { render :show, status: :created, location: @todo_item }
       else
         format.html { render :new }
@@ -30,9 +30,8 @@ class TodoItemsController < ApplicationController
   def update
     respond_to do |format|
       if @todo_item.update(todo_item_params)
-        format.html { redirect_to todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => @todo_item.id), notice: 'Todo item was successfully updated.' }
+        format.html { redirect_to [@todo_list, @todo_item], notice: 'Todo item was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo_item }
-        format.js
       else
         format.html { render :edit }
         format.json { render json: @todo_item.errors, status: :unprocessable_entity }
@@ -66,7 +65,5 @@ class TodoItemsController < ApplicationController
 
     def set_todo_list
       @todo_list = TodoList.find(params[:todo_list_id]) #todo: change to current_user?
-
-      # @todo_list = TodoList.find(params[:todo_list_id]) #todo: change to current_user?
     end
 end

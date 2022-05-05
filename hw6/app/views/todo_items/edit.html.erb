@@ -2,5 +2,6 @@
 
 <%= render 'form', todo_item: [@todo_list, @todo_item] %>
 
-<td><%= link_to "Show", todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => @todo_item.id) %></td> |
+
+<td><%= link_to 'Show', [@todo_list, @todo_item] %></td> |
 <%= link_to 'Back', @todo_list %>
