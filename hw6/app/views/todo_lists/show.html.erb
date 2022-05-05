@@ -17,7 +17,7 @@
   </h2>
 </p>
 
-<%= link_to 'Add Todo Item', new_todo_list_todo_item_path(@todo_list) %>
+<%= link_to 'Add Todo Item', new_todo_list_todo_item_path(:todo_list_id => @todo_list.id) %>
 
 <% @todo_items.each do |todo_item| %>
   <div class="todo_list">
