@@ -8,8 +8,8 @@
   		<span class="todo_item_incomplete_link"><%= todo_item.due_date %></span>
     <% end %>
 
-    <%= link_to "#{todo_item.task_title}", todo_list_todo_item_path(:todo_list_id => @todo_list.id, :todo_item_id => todo_item.id), class: "todo_list" %> <!-- todo: change here? -->
-    <%= link_to 'Update', edit_todo_list_todo_item_path(:todo_list_id => @todo_list.id, :todo_item_id => todo_item.id), remote: true, id: 'edit_todo_list_link' %>
+    <%= link_to "#{todo_item.task_title}", todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => todo_item.id), class: "todo_list" %> <!-- todo: change here? -->
+    <%= link_to 'Update', edit_todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => todo_item.id), remote: true, id: 'edit_todo_list_link' %>
 
     <div id='form_container' />  </div>
 
