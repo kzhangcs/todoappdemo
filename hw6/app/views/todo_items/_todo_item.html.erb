@@ -1,11 +1,11 @@
-<div class="todo_list">
+<div id="todo_list">
 
     <div id="<%= dom_id(todo_item) %>">
 
       <div class="flex-container">
 
         <div class="flex-child 1">
-
+                  <br>
           <% if todo_item.done %>
             <span class="todo_item_completed_link"><%= todo_item.due_date %></span>
           <% else %>
@@ -20,6 +20,7 @@
       </div>
 
       <div class="flex-child 2">
+                  <br>
         <%= button_to "Mark Done", todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => todo_item.id),   
         params: {:todo_item => { :id => todo_item.id, :done => true}}, remote: true, method: :put, id: 'done_todo_item_link'  %>
       </div>
