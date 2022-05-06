@@ -1,0 +1,20 @@
+<div id="title">
+
+	<% all_done = true %>
+	<% @todo_list.todo_items.each do |todo_item| %>
+	  <% if not todo_item.done %>
+	    <% all_done = false %>
+	  <% end %>
+	<% end %>
+
+	<p>
+	  <h2>List Due Date:
+		  <% if all_done %>
+		    <span class="todo_list_completed_link"><%= @todo_list.list_due_date%></span>
+		  <% else %>
+		    <span class="todo_list_incomplete_link"><%= @todo_list.list_due_date %></span>
+		  <% end %>
+	  </h2>
+	</p>
+
+ </div>
