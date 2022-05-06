@@ -134,7 +134,7 @@ textarea {
 }
 
 .flex-child {
-    flex: 0.25;
+    flex: 0.33;
 }  
 
 .flex-child:first-child {
