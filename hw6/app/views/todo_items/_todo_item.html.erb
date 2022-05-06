@@ -13,8 +13,10 @@
           <% end %>
 
           <%= link_to "#{todo_item.task_title}", [@todo_list, todo_item], class: "todo_list" %> <!-- todo: change here? -->
-
-          <%= link_to 'Update', edit_todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => todo_item.id), remote: true, id: 'edit_todo_item_link' %> <!-- id for edit.js.erb to render the edit form-->
+<!-- 
+          <%= link_to 'Update', edit_todo_list_todo_item_path(:todo_list_id => @todo_list.id, :id => todo_item.id), remote: true, id: 'edit_todo_item_link' %> -->
+           
+          <!-- id for edit.js.erb to render the edit form-->
       </div>
 
       <div class="flex-child 2">
