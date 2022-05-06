@@ -127,3 +127,16 @@ textarea {
     width: 400px;
     -webkit-border-radius: 10px;
 }
+
+
+.flex-container {
+    display: flex;
+}
+
+.flex-child {
+    flex: 0.2;
+}  
+
+.flex-child:first-child {
+    margin-right: 20px;
+} 
