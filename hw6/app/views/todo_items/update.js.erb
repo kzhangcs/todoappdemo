@@ -1,3 +1,2 @@
-// $(alert('hello'));
 $("#<%= dom_id(@todo_item) %>").replaceWith("<%= j(render @todo_item) %>");
-$("#title").replaceWith("<%= j(render @todo_list) %>");
+$("#todo_list_name").replaceWith("<%= j(render @todo_list) %>");
